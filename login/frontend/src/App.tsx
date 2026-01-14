@@ -6,10 +6,12 @@ import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import './styles/App.css';
 
+const basename = import.meta.env.BASE_URL || '/';
+
 const App: React.FC = () => {
     return (
         <AuthProvider>
-            <BrowserRouter>
+            <BrowserRouter basename={basename}>
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route
