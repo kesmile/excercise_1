@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: login_backend
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=secret
+      - DB_NAME=user_management
+      - JWT_SECRET=clave_secreta_para_token
+    depends_on:
+      - db
+      - flyway
+    networks:
+      - login_net
+    restart: always
+
+  db:
+    image: mariadb:10.11.13
+    container_name: login_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: user_management
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - login_net
+    restart: always
+
+  flyway:
+    image: flyway/flyway:10
+    container_name: login_flyway
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+    environment:
+      - FLYWAY_URL=jdbc:mariadb://db:3306/user_management
+      - FLYWAY_USER=root
+      - FLYWAY_PASSWORD=secret
+    volumes:
+      - ./backend/sql:/flyway/sql
+    depends_on:
+      - db
+    networks:
+      - login_net
+
+volumes:
+  mysql_data:
+
+networks:
+  login_net:
+    driver: bridge
