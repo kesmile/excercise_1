@@ -10,8 +10,8 @@ INSERT INTO roles (roleName, status) VALUES
 
 -- Insert sample users (password default: password123)
 INSERT INTO user (roleId, user_name, password, firstName, lastName, status, createUser, createDate, modifiedUser) VALUES
-(1, 'admin', '$2b$10$c68lXwdcdHf3bnfxbBxLAepX0FdiM7vgF70VOW9X0DZoyk7Voouuy', 'Juan', 'Perez', 'active', 'system', NOW(), 'system'),
-(1, 'admin2', '$2b$10$c68lXwdcdHf3bnfxbBxLAepX0FdiM7vgF70VOW9X0DZoyk7Voouuy', 'Jose', 'Chavez', 'active', 'system', NOW(), 'system'),
-(1, 'admin3', '$2b$10$c68lXwdcdHf3bnfxbBxLAepX0FdiM7vgF70VOW9X0DZoyk7Voouuy', 'Luis', 'Rodriguez', 'active', 'system', NOW(), 'system'),
-(2, 'jlopez', '$2b$10$c68lXwdcdHf3bnfxbBxLAepX0FdiM7vgF70VOW9X0DZoyk7Voouuy', 'Rodrigo', 'Lopez', 'active', 'admin', NOW(), 'admin'),
-(2, 'mgarcia', '$2b$10$c68lXwdcdHf3bnfxbBxLAepX0FdiM7vgF70VOW9X0DZoyk7Voouuy', 'Maria', 'Garcia', 'active', 'admin', NOW(), 'admin');
+(1, 'admin', '$2b$10$jml5TWA4hlNVsfcM56A7U.jg/23j76/FSmsWsn49ITpCBfCeKqlyK', 'Juan', 'Perez', 'active', 'system', NOW(), 'system'),
+(1, 'admin2', '$2b$10$jml5TWA4hlNVsfcM56A7U.jg/23j76/FSmsWsn49ITpCBfCeKqlyK', 'Jose', 'Chavez', 'active', 'system', NOW(), 'system'),
+(1, 'admin3', '$2b$10$jml5TWA4hlNVsfcM56A7U.jg/23j76/FSmsWsn49ITpCBfCeKqlyK', 'Luis', 'Rodriguez', 'active', 'system', NOW(), 'system'),
+(2, 'jlopez', '$2b$10$jml5TWA4hlNVsfcM56A7U.jg/23j76/FSmsWsn49ITpCBfCeKqlyK', 'Rodrigo', 'Lopez', 'active', 'admin', NOW(), 'admin'),
+(2, 'mgarcia', '$2b$10$jml5TWA4hlNVsfcM56A7U.jg/23j76/FSmsWsn49ITpCBfCeKqlyK', 'Maria', 'Garcia', 'active', 'admin', NOW(), 'admin');
