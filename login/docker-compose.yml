@@ -26,8 +26,6 @@ services:
   db:
     image: mariadb:10.11.13
     container_name: login_db
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: user_management
