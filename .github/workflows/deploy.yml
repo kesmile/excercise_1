@@ -38,9 +38,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
-        env:
-          BASE_URL: /excercise_1/
+        run: npx tsc && npx vite build --base=/excercise_1/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
