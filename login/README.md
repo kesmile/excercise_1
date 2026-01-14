@@ -359,6 +359,90 @@ npm run migrate   # Ejecutar migraciones Flyway
 npm run dev       # Iniciar servidor de desarrollo
 npm run build     # Compilar para producción
 npm run preview   # Previsualizar build de producción
+npm run deploy    # Desplegar a GitHub Pages
+```
+
+## Despliegue en GitHub Pages
+
+### 1. Configurar Variables de Entorno
+
+Editar `frontend/.env.production`:
+
+```env
+VITE_API_URL=https://tu-backend-api.com/api
+VITE_BASE_PATH=/nombre-repositorio
+```
+
+### 2. Configurar vite.config.ts
+
+Si tu repositorio es `https://github.com/usuario/proyecto`, actualizar:
+
+```typescript
+export default defineConfig({
+  base: '/proyecto/', // Nombre del repositorio
+  // ...resto de configuración
+})
+```
+
+### 3. Desplegar
+
+Opción A: Usando npm script
+
+```bash
+cd frontend
+npm install gh-pages --save-dev
+npm run deploy
+```
+
+Opción B: Usando script manual
+
+```bash
+cd frontend
+npm run build
+
+# Inicializar git en dist/
+cd dist
+git init
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:usuario/proyecto.git main:gh-pages
+```
+
+### 4. Configurar GitHub Pages
+
+1. Ir a Settings → Pages en tu repositorio
+2. Source: Deploy from a branch
+3. Branch: `gh-pages` / `root`
+4. Save
+
+Tu app estará en: `https://usuario.github.io/proyecto/`
+
+### Configuración de URL del Backend
+
+El frontend necesita conocer la URL del backend. Hay dos opciones:
+
+**Opción 1: Backend en servidor propio**
+
+```env
+# .env.production
+VITE_API_URL=https://mi-backend.herokuapp.com/api
+```
+
+**Opción 2: Backend local para desarrollo**
+
+```env
+# .env.development
+VITE_API_URL=/api  # Usa proxy de Vite
+```
+
+**Importante:** Si el backend está en diferente dominio, debe tener CORS configurado:
+
+```typescript
+// backend/src/index.ts
+app.use(cors({
+  origin: ['https://usuario.github.io', 'http://localhost:5173'],
+  credentials: true
+}));
 ```
 
 ## Troubleshooting
