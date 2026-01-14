@@ -1,0 +1,23 @@
+{
+  "name": "cash-machine",
+  "version": "1.0.0",
+  "description": "Ejercicio maquina monedera dolares",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kesmile/excercise_1.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Kelvi Padilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kesmile/excercise_1/issues"
+  },
+  "homepage": "https://github.com/kesmile/excercise_1#readme"
+}
