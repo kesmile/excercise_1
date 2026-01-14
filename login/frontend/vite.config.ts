@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     plugins: [react()],
-    base: '/prueba-tecnica/',  // Cambia esto por el nombre de tu repositorio en GitHub
+    base: '/excercise_1/',
     server: {
         port: 5173,
         proxy: {
