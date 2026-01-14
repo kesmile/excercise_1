@@ -20,6 +20,8 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
+        "build:local": "vite build --base=./",
+        "preview:local": "vite build --base=/ && vite preview --base=/",
         "preview": "vite preview",
         "deploy": "npm run build && gh-pages -d dist"
     }
