@@ -66,9 +66,11 @@ const Dashboard: React.FC = () => {
             <main className="dashboard-main">
                 <div className="dashboard-actions">
                     <h2>Gestión de Usuarios</h2>
-                    <button onClick={() => setShowCreateModal(true)} className="btn-primary">
-                        Crear Usuario
-                    </button>
+                    {isAdmin && (
+                        <button onClick={() => setShowCreateModal(true)} className="btn-primary">
+                            Crear Usuario
+                        </button>
+                    )}
                 </div>
 
                 {error && <div className="error-message">{error}</div>}
